@@ -48,7 +48,7 @@ repos:
       - id: markdownlint
     # TODO: add complete yamllint config
   - repo: https://github.com/adrienverge/yamllint.git
-    rev: v1.29.0
+    rev: v1.37.0
     hooks:
       - id: yamllint
   - repo: https://github.com/pre-commit/mirrors-prettier
