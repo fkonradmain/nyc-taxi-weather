@@ -65,8 +65,8 @@ especially since the locations have been further anonymized.
 
 | Dataset Name                 | Description                  | Timespan                  | Input Format              | Number of records |
 | ---------------------------- | ---------------------------- | ------------------------- | ------------------------- | ----------------- |
-| `green_tripdata_2025-01`     | NYC Green Taxi Trip Records  |  January 2025             | Parquet                   | 48326             |
-| `yellow_tripdata_2025-01`    | NYC Yellow Taxi Trip Records |  January 2025             | Parquet                   | 3475226           |
+| `green_tripdata_2025-01`     | NYC Green Taxi Trip Records  | January 2025              | Parquet                   | 48326             |
+| `yellow_tripdata_2025-01`    | NYC Yellow Taxi Trip Records | January 2025              | Parquet                   | 3475226           |
 | `202501-citibike-tripdata`   | NYC Citibike Trip Data       | January 2025              | multiple CSVs with header | 2124475           |
 | `202503-citibike-tripdata`   | NYC Citibike Trip Data       | March 2025                | CSV with header           | 3168271           |
 | `Chicago_Taxi_Trips__2024-_` | Chicago Taxi Trip Records    | January 2024 - March 2025 | CSV with header           | 7917845           |
