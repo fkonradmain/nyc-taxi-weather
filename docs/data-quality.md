@@ -50,7 +50,7 @@ Additionally, they are less optimized for throughput.
 
 ##### 3. Acceptable legacy file types
 
-File types that allow incomplete data:
+File types that can be processed if the data was incomplete:
 
 - **CSV**
 - **TSV**
@@ -67,7 +67,7 @@ or tabulators respectively.
 
 They have better string handling capabilities. Processing them
 has a high performance overhead, since the whole file has to be parsed
-first. Also, any error is going to invalidate the whole file.
+at once. Also, any error is going to invalidate the whole file.
 
 ##### 5. Bad file types (bad to even worse)
 
