@@ -8,7 +8,7 @@ from pyspark.sql import SparkSession, DataFrame
 # import pyspark.sql.functions as F
 from pyspark.sql.types import StructType
 from taxiweather.etl.schemas.citibike import citibike_schema
-from taxiweather.config import config
+from taxiweather.config import Config
 from taxiweather.constants import Timezone
 
 spark: SparkSession = SparkSession.builder.getOrCreate()
@@ -18,10 +18,10 @@ if not isinstance(spark, SparkSession):
 
 def load_citibike_csv(
     spark: SparkSession,
-    month: str,
+    month: str = "202501",
     schema: StructType | None = citibike_schema,
     infer_schema: bool = False,
-    tz: str = Timezone.nyc.value,
+    tz: str = Timezone.NYC,
 ) -> DataFrame:
     """Load CSV files from the input directory for the specified month.
 
@@ -45,7 +45,7 @@ def load_citibike_csv(
         header=True,
         schema=schema,
         inferSchema=infer_schema,
-        path=f"{config.INPUT_DIR}/{month}-citibike-tripdata*.csv",
+        path=f"{Config.INPUT_DIR}/{month}-citibike-tripdata*.csv",
     )
     # Restore the old time zone
     if old_timezone is not None:
@@ -57,7 +57,7 @@ def load_weather_parquet(
     spark: SparkSession,
     station_id: str = "USW00094728",  # Central Park
     year: str = "2025",
-    tz: str = Timezone.nyc.value,
+    tz: str = Timezone.NYC,
 ) -> DataFrame:
     """Load CSV files from the input directory for the specified month.
 
@@ -74,7 +74,7 @@ def load_weather_parquet(
     spark.conf.set("spark.sql.session.timeZone", tz)
 
     df: DataFrame = spark.read.parquet(
-        f"{config.INPUT_DIR}/GHCNh_{station_id}_{year}.parquet",
+        f"{Config.INPUT_DIR}/GHCNh_{station_id}_{year}.parquet",
     )
     # Restore the old time zone
     if old_timezone is not None:
