@@ -27,6 +27,7 @@ def main(*args: Any, **kwargs: Any) -> None:
     spark: SparkSession = SparkSession.builder.getOrCreate()
     if not isinstance(spark, SparkSession):
         raise RuntimeError("spark object is not of type pyspark.sql.SparkSession")
+    spark.conf.set("spark.sql.session.timeZone", Config.SPARK_TIMEZONE)
 
     # load Input data into dataframes
     df_citibike_raw: DataFrame = load_citibike_csv(spark=spark)
