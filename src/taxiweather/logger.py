@@ -2,7 +2,7 @@ import logging
 import sys
 from typing import TextIO
 
-from .config import config
+from .config import Config
 
 __name__ = "logger"
 
@@ -19,5 +19,5 @@ stream_handler.setFormatter(formatter)
 # Add handler to logger
 logger.handlers = [stream_handler]
 
-logger.setLevel(config.LOG_LEVEL)
-logger.info("LOG LEVEL: %s", config.LOG_LEVEL)
+logger.setLevel(Config.LOG_LEVEL)
+logger.info("LOG LEVEL: %s", Config.LOG_LEVEL)
